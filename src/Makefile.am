@@ -265,6 +265,11 @@ mod_accesslog_la_SOURCES = mod_accesslog.c
 mod_accesslog_la_LDFLAGS = -module -export-dynamic -avoid-version
 mod_accesslog_la_LIBADD = $(common_libadd)
 
+lib_LTLIBRARIES += mod_mysql_accesslog.la
+mod_mysql_accesslog_la_SOURCES = mod_mysql_accesslog.c
+mod_mysql_accesslog_la_LDFLAGS = -module -export-dynamic -avoid-version -no-undefined
+mod_mysql_accesslog_la_LIBADD = $(MYSQL_LIBS) $(common_libadd)
+mod_mysql_accesslog_la_CPPFLAGS = $(MYSQL_INCLUDE)
 
 hdr = server.h buffer.h network.h log.h keyvalue.h \
       response.h request.h fastcgi.h chunk.h \
